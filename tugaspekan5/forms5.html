@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px 40px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 580px; 
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px; 
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-bottom: 20px; 
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px; 
+            margin-bottom: 15px; 
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 35px; 
+            margin-bottom: 25px; 
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+            color: #495057;
+        }
+        
+        ::placeholder {
+            color: #aaa;
+            opacity: 1; 
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%20197.35L146.2%2056.55%205.4%20197.35z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 10px;
+        }
+
+        .form-group > label {
+            font-size: 14px;
+            font-weight: bold; 
+            color: #212529;
+            margin-bottom: 8px; 
+        }
+        
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 0;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group input[type="checkbox"],
+        .agreement-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+        
+        .checkbox-group label,
+        .agreement-group label {
+            margin-bottom: 0;
+            font-weight: normal; 
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .agreement-group {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+
+        .submit-button {
+            width: 150px;
+            padding: 12px 0;
+            background-color: #212529;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold; 
+            cursor: pointer;
+            display: block; 
+            margin: 0 auto; 
+            
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-button:hover {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Order Form</h1>
+
+        <form>
+            <div class="form-row">
+                <div class="form-group" style="flex-basis: 100%;">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" value="Silfi">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="silfi@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" value="+62 888 888 99">
+                </div>
+            </div>
+
+            <label class="section-title">Order Details</label>
+            
+            <div class="form-row">
+                <div class="form-group" style="flex: 2;">
+                    <label for="product">Product</label>
+                    <select id="product">
+                        <option value="" disabled selected>Select a product</option>
+                        <option value="A">Product A</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" value="1" min="1">
+                </div>
+            </div>
+            
+            <label class="form-group" style="margin-bottom: 5px;">Size</label>
+            <div class="checkbox-grid">
+                <div class="checkbox-group"><input type="checkbox" id="size-small"><label for="size-small">Small</label></div>
+                <div class="checkbox-group"><input type="checkbox" id="size-medium"><label for="size-medium">Medium</label></div>
+                <div class="checkbox-group"><input type="checkbox" id="size-large"><label for="size-large">Large</label></div>
+                <div class="checkbox-group"><input type="checkbox" id="size-xl"><label for="size-xl">XL</label></div>
+            </div>
+            
+            <label class="form-group" style="margin-bottom: 5px;">Color</label>
+            <div class="checkbox-grid">
+                <div class="checkbox-group"><input type="checkbox" id="color-red"><label for="color-red">Red</label></div>
+                <div class="checkbox-group"><input type="checkbox" id="color-blue"><label for="color-blue">Blue</label></div>
+                <div class="checkbox-group"><input type="checkbox" id="color-green"><label for="color-green">Green</label></div>
+                <div class="checkbox-group"><input type="checkbox" id="color-black"><label for="color-black">Black</label></div>
+            </div>
+            
+            <label class="form-group">Additional Comments</label>
+            <div class="form-group">
+                <textarea id="comments" placeholder="Enter any additional comments or instructions"></textarea>
+            </div>
+
+            <label class="section-title">Payment Details</label>
+
+            <div class="form-group">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method">
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="cc">Credit Card</option>
+                </select>
+            </div>
+
+            <div class="agreement-group">
+                <input type="checkbox" id="terms">
+                <label for="terms">I accept the terms and conditions.</label>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Order</button>
+        </form>
+    </div>
+</body>
+</html>
