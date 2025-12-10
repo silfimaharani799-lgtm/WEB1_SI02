@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 10px;
+        }
+        .box1 {
+            grid-column: span 12;
+            background:rgb(128, 171, 240);
+            padding: 20px;
+        }
+        .box2 {
+            grid-column: span 6;
+            background:rgb(78, 126, 223);
+            padding: 20px;
+        }
+        .box3 {
+            grid-column: span 3;
+            background: rgb(84, 221, 175);
+            padding: 20px;
+        }
+        .box4 {
+            grid-column: span 3;
+            background: rgb(193, 164, 33);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tampilan Grid</h1>
+
+    <div class="grid-container">
+        <div class="box1">Box 1</div>
+        <div class="box2">Box 2</div>
+        <div class="box3">Box 3</div>
+        <div class="box4">Box 4</div>
+    </div>
+</body>
+</html>
