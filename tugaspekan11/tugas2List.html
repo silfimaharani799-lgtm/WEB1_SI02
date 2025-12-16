@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List Sederhana</title>
+    <style>
+        body {
+            font-family: Times New Roman, sans-serif;
+            background: #f4f7f6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        input {
+            width: 70%;
+            padding: 8px;
+            background-color: rgb(227, 227, 227);
+        }
+        button {
+            padding: 8px 12px;
+            margin-top: 10px;
+        }
+        ul {
+            margin-top: 15px;
+        }
+        .btn-tambah {
+            background-color: #ef72de;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-hapus {
+            background-color: #5e82ef; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-tambah:hover {
+            background-color: #ea2fb5;
+        }
+
+            .btn-hapus:hover {
+            background-color: #4351ea;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Masukkan tugas">
+    <br>
+    <button class="btn-tambah">Tambah</button>
+    <button class="btn-hapus">Hapus Terakhir</button>
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+    function tambahTask() {
+        const input = document.getElementById("taskInput");
+        const teks = input.value;
+
+        if (teks === "") {
+            alert("Masukkan teks terlebih dahulu!");
+            return;
+        }
+
+        const li = document.createElement("li");
+        li.textContent = teks;
+
+        const ul = document.getElementById("taskList");
+        ul.appendChild(li);
+
+        input.value = "";
+    }
+
+    function hapusTerakhir() {
+        const ul = document.getElementById("taskList");
+
+        if (ul.lastChild) {
+            ul.removeChild(ul.lastChild);
+        } else {
+            alert("Tidak ada item untuk dihapus!");
+        }
+    }
+
+    const btnTambah = document.querySelector('.btn-tambah');
+    const btnHapus = document.querySelector('.btn-hapus');
+
+    btnTambah.addEventListener('click', tambahTask);
+    btnHapus.addEventListener('click', hapusTerakhir);
+
+    document.getElementById("taskInput").addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            tambahTask();
+        }
+    });
+</script>
+
+</body>
+</html>

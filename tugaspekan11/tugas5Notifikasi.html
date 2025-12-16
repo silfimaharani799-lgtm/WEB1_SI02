@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifikasi jQuery</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f3f4f6;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #2563eb;
+            color: white;
+            font-weight: 600;
+        }
+
+        #notif {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 320px;
+            background-color: #e35edd;
+            color: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        notif h4 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+
+        #notif p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+
+<button id="showNotif">Submit</button>
+
+<div id="notif">
+    <h4>Berhasil!</h4>
+    <p>Data kamu sudah berhasil disimpan ke sistem.</p>
+</div>
+
+<script>
+    $("#showNotif").click(function () {
+        $("#notif")
+            .css("background-color", "#22c55e")
+            .fadeIn(400)
+            .slideDown(400)
+            .delay(3000)
+            .slideUp(400)
+            .fadeOut(400);
+    });
+</script>
+
+</body>
+</html>

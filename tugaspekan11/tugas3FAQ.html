@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ Interaktif jQuery</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            background-color: #f4f4f4; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+
+        .faq-box {
+            background-color: white; 
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 600px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            cursor: pointer; 
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: black; 
+            transition: color 0.2s; 
+        }
+        
+        .answer {
+            display: none; 
+            margin-left: 20px;
+            padding: 10px 0;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="faq-box">
+        <h2>Pertanyaan Umum</h2>
+
+        <div class="faq">
+            <div class="question">1. Apa itu jQuery?</div>
+            <div class="answer">jQuery adalah library JavaScript yang dirancang untuk mempermudah manipulasi DOM dan menangani event pada halaman web.</div>
+
+            <div class="question">2. Apa itu FAQ?</div>
+            <div class="answer">FAQ (Frequently Asked Questions) adalah bagian dari situs web yang berisi kumpulan pertanyaan umum dan jawabannya.</div>
+
+            <div class="question">3. Apa itu HTML?</div>
+            <div class="answer">HTML (HyperText Markup Language) adalah bahasa markup standar yang digunakan untuk membuat dan menyusun halaman web.</div>
+
+            <div class="question">4. Apa kelebihan jQuery?</div>
+            <div class="answer">jQuery lebih ringkas dan mudah dipahami.</div>
+
+            <div class="question">5. Apakah jQuery masih relevan saat ini?</div>
+            <div class="answer">Meskipun kerangka kerja (framework) modern seperti React, Vue, atau Angular lebih populer, jQuery masih sangat relevan untuk proyek yang membutuhkan manipulasi DOM yang cepat dan sederhana tanpa overhead kerangka kerja penuh.</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            $(".question").click(function() {
+                $(this).next(".answer").toggle();
+            });
+
+            $(".question").hover(
+                function() {
+                    $(this).css("color", "blue");
+                },
+                function() {
+                    $(this).css("color", "black");
+                }
+            );
+
+        });
+    </script>
+
+</body>
+</html>

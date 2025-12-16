@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Slideshow Sederhana jQuery Fade</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Times New Roman , sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .slideshow-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        .slide-frame {
+            position: relative; 
+            height: 250px; 
+            margin-bottom: 15px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        .slide-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute; 
+            top: 0;
+            left: 0;
+            display: none; 
+        }
+
+        .controls button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<body>
+
+    <div class="slideshow-container">
+        <h2>Gambar Aesthetic Slideshow</h2>
+
+        <div class="slide-frame">
+            <img class="slide" src="https://akcdn.detik.net.id/visual/2020/11/05/makin-aesthetic-dengan-trend-foto-ala-selebgram-korea_11.jpeg?w=480&q=90" alt="Gambar 1">
+            <img class="slide" src="https://geti.id/wp-content/uploads/2024/10/retro-photo-camera-ledge-1024x576.jpg" alt="Gambar 2">
+            <img class="slide" src="https://wallpapers.com/images/featured/aesthetic-pictures-hv6f88paqtseqh92.jpg" alt="Gambar 3">
+            <img class="slide" src="https://images.pexels.com/photos/3910065/pexels-photo-3910065.jpeg?cs=srgb&dl=pexels-valeriiamiller-3910065.jpg&fm=jpg" alt="Gambar 4">
+            <img class="slide" src="https://cnc-magazine.oramiland.com/parenting/images/catatan-aesthetic.width-800.format-webp.webp" alt="Gambar 5">
+            <img class="slide" src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00NTYtMDA3XzEuanBn.jpg" alt="Gambar 6">
+        </div>
+
+        <div class="controls">
+            <button id="prevBtn">« Previous</button>
+            <button id="nextBtn">Next »</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let currentIndex = 0;
+            const slides = $('.slide');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.fadeOut(400); 
+
+                if (index >= totalSlides) {
+                    currentIndex = 0;
+                } else if (index < 0) {
+                    currentIndex = totalSlides - 1;
+                } else {
+                    currentIndex = index;
+                }
+
+                $(slides[currentIndex]).fadeIn(400); 
+            }
+
+            $('#nextBtn').click(function() {
+                showSlide(currentIndex + 1);
+            });
+
+            $('#prevBtn').click(function() {
+                showSlide(currentIndex - 1);
+            });
+
+            showSlide(0); 
+        });
+    </script>
+
+</body>
+</html>

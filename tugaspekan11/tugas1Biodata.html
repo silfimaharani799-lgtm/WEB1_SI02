@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Mahasiswa</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .main-box-container {
+            background-color: white;
+            padding-top: 30px; 
+            padding-right: 30px; 
+            padding-left: 30px;
+            padding-bottom: 50px;
+
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 450px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 0; 
+            object-fit: cover;
+            margin: 15px auto 20px auto;
+            display: block;
+            border: 3px solid #007bff;
+        }
+        
+        .detail-row {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .detail-row strong {
+            color: #555;
+            min-width: 120px;
+        }
+        .editable-data {
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 4px;
+            width: 60%;
+            text-align: right;
+        }
+
+        .action-buttons {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-top: 15px;
+        }
+        .action-buttons button {
+            margin-top: 5px;
+            padding: 7px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-box-container" id="biodataContainer">
+        <h2>Biodata Mahasiswa</h2>
+        
+        <img src="image.jpeg" 
+             alt="Foto Profil Default" 
+             id="fotoProfil" 
+             class="profile-pic">
+
+        <div class="detail-row">
+            <strong>Nama:</strong> 
+            <span id="namaMahasiswa" class="editable-data">Silfi Maharani</span>
+        </div>
+        
+        <div class="detail-row">
+            <strong>NIM:</strong> 
+            <span id="nimMahasiswa" class="editable-data">0110125077</span>
+        </div>
+
+        <div class="detail-row">
+            <strong>Program Studi:</strong> 
+            <span id="programStudi" class="editable-data">Sistem Informasi</span>
+        </div>
+        
+        <div class="action-buttons">
+            <button id="btnUbahNama">Ubah Nama</button>
+        </div>
+
+        <div class="action-buttons">
+            <button id="btnUbahProdi">Ubah Program Studi</button>
+        </div>
+
+        <div class="action-buttons">
+            <button id="btnGantiFoto">Ganti Foto</button>
+        </div>
+
+        <div class="action-buttons">
+            <button id="btnSembunyikan">Sembunyikan Biodata</button>
+        </div>
+        
+            </div>
+
+        <div id="tampilkanWrapper" class="action-buttons" style="margin-top: 20px;">
+            <button id="btnTampilkan">Tampilkan Biodata</button>
+        </div>
+
+    <script>
+        const biodataContainer = document.getElementById('biodataContainer');
+        const namaElement = document.getElementById('namaMahasiswa');
+        const prodiElement = document.getElementById('programStudi');
+        const fotoElement = document.getElementById('fotoProfil');
+
+        const btnUbahNama = document.getElementById('btnUbahNama');
+        const btnUbahProdi = document.getElementById('btnUbahProdi');
+        const btnGantiFoto = document.getElementById('btnGantiFoto');
+        const btnSembunyikan = document.getElementById('btnSembunyikan');
+        const btnTampilkan = document.getElementById('btnTampilkan');
+        const tampilkanWrapper = document.getElementById('tampilkanWrapper'); 
+
+        tampilkanWrapper.style.display = 'none';
+
+        btnUbahNama.addEventListener('click', () => {
+            const newName = prompt("Masukkan Nama Baru:");
+            if (newName && newName.trim() !== "") {
+                namaElement.innerHTML = newName;
+            }
+        });
+
+        btnUbahProdi.addEventListener('click', () => {
+            const newProdi = prompt("Masukkan Program Studi Baru:");
+            if (newProdi && newProdi.trim() !== "") {
+                prodiElement.innerHTML = newProdi;
+            }
+        });
+
+        btnGantiFoto.addEventListener('click', () => {
+            const newUrl = prompt("Masukkan URL Foto Profil Baru (Contoh: https://picsum.photos/120):");
+            if (newUrl && newUrl.trim() !== "") {
+                fotoElement.setAttribute('src', newUrl);
+                fotoElement.setAttribute('alt', 'Foto Profil Baru');
+            }
+        });
+
+        btnSembunyikan.addEventListener('click', () => {
+            biodataContainer.style.display = 'none';
+            tampilkanWrapper.style.display = 'block'; 
+        });
+
+        btnTampilkan.addEventListener('click', () => {
+            biodataContainer.style.display = 'block';
+            tampilkanWrapper.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
